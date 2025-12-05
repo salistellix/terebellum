@@ -25,7 +25,11 @@ impl From<&str> for Error {
 
 impl core::fmt::Display for Error {
     fn fmt(&self, fmt: &mut core::fmt::Formatter) -> core::fmt::Result {
-        write!(fmt, "{self:?}")
+        match self {
+            Self::Generic(message) => fmt.write_str(message.as_str()),
+            #[allow(unreachable_patterns)]
+            other => core::fmt::Debug::fmt(other, fmt),
+        }
     }
 }
 
