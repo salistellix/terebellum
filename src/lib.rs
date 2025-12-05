@@ -8,7 +8,7 @@ mod error;
 mod nn;
 mod support;
 
-// -- Public Modules
+// --- Public Modules
 pub mod model;
 pub mod prelude;
 pub mod utils;
